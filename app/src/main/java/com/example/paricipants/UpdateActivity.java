@@ -1,8 +1,4 @@
 package com.example.paricipants;
 
-
-
-public class MainActivity  {
-
-
+public class UpdateActivity {
 }

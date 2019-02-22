@@ -15,22 +15,7 @@
             android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
-            android:inputType="text"
-            android:singleLine="true" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/last_name_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/name_input">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/et_last_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Last Name"
+            android:hint="@string/activity_add_hint_name"
             android:inputType="text"
             android:singleLine="true" />
     </android.support.design.widget.TextInputLayout>
@@ -39,23 +24,31 @@
         android:id="@+id/country_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/last_name_input">
+        android:layout_below="@id/name_input">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/et_country"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Country"
+            android:hint="@string/activity_add_hint_country"
             android:inputType="text"
             android:singleLine="true" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
+        android:id="@+id/btn_dob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/country_input"
+        android:layout_gravity="center"
+        android:text="@string/activity_add_button_set_dob"/>
+
+    <Button
         android:id="@+id/btn_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/country_input"
+        android:layout_below="@+id/btn_dob"
         android:layout_gravity="center"
-        android:text="Save" />
+        android:text="@string/activity_add_btn_add" />
 
 </RelativeLayout>

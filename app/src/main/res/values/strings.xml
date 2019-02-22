@@ -3,4 +3,9 @@
     <string name="list_text_name">Name</string>
     <string name="list_text_country">Country</string>
     <string name="list_text_dob">23.08.2005</string>
+    <string name="activity_add_hint_name">Name</string>
+    <string name="activity_add_hint_country">Country</string>
+    <string name="activity_add_hint_dob">23.08.2005</string>
+    <string name="activity_add_btn_add">Add</string>
+    <string name="activity_add_button_set_dob">set DOB</string>
 </resources>
