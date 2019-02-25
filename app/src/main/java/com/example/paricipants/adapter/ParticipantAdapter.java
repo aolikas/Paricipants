@@ -39,7 +39,7 @@ public class ParticipantAdapter extends RecyclerView.Adapter<ParticipantAdapter.
         Participant participant = list.get(position);
         holder.nameTextView.setText(participant.getPartName());
         holder.countryTextView.setText(participant.getPartCountry());
-        holder.dateTextView.setText(participant.getPartBirthday().toLocaleString().substring(0, 11));
+        holder.dateTextView.setText(participant.getPartBirthday().toLocaleString().substring(0,12));
         holder.itemView.setTag(participant);
         holder.itemView.setOnLongClickListener(longClickListener);
         holder.itemView.setOnClickListener(clickListener);

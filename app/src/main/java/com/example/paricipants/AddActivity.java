@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.paricipants.database.Participant;
@@ -27,8 +28,9 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
     private Calendar calendar;
 
     private TextInputEditText nameEditText, countryEditText;
+    ImageView calendarImage;
 
-    private Button addButton, setDOB;
+    private Button addButton;
 
     private AddParticipantViewModel addParticipantViewModel;
 
@@ -38,7 +40,7 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
         setContentView(R.layout.activity_add);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
         nameEditText = findViewById(R.id.et_name);
         countryEditText = findViewById(R.id.et_country);
@@ -70,8 +72,9 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
 
         });
 
-        setDOB = findViewById(R.id.btn_dob);
-        setDOB.setOnClickListener(new View.OnClickListener() {
+        calendarImage = findViewById(R.id.iv_dob);
+
+        calendarImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 datePickerDialog.show();

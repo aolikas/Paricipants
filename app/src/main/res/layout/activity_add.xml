@@ -35,19 +35,36 @@
             android:singleLine="true" />
     </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:id="@+id/btn_dob"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/do_input"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/country_input"
-        android:layout_gravity="center"
-        android:text="@string/activity_add_button_set_dob"/>
+        android:layout_below="@+id/country_input">
+
+        <TextView
+            android:id="@+id/edit_text_hire_date"
+            android:hint="Set a participant's birthday"
+            android:layout_width="wrap_content"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textSize="20sp"/>
+        <ImageView
+            android:id="@+id/iv_dob"
+            android:src="@android:drawable/ic_menu_my_calendar"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
 
     <Button
         android:id="@+id/btn_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_dob"
+        android:layout_below="@+id/do_input"
         android:layout_gravity="center"
         android:text="@string/activity_add_btn_add" />
 

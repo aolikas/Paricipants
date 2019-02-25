@@ -4,7 +4,9 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
+import android.view.View;
 
+import com.example.paricipants.R;
 import com.example.paricipants.database.AppDatabase;
 import com.example.paricipants.database.Participant;
 
@@ -20,6 +22,7 @@ public class ParticipantListViewModel extends AndroidViewModel {
         super(aplication);
         appDb = AppDatabase.getDatabase(this.getApplication());
         participantsList = appDb.getParticipantDao().getAllParticipants();
+
     }
 
     public LiveData<List<Participant>> getParticipantsList() {
