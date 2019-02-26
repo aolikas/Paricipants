@@ -28,18 +28,20 @@ public class ParticipantAdapter extends RecyclerView.Adapter<ParticipantAdapter.
         this.clickListener = clickListener;
     }
 
+    @NonNull
     @Override
-    public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new RecyclerViewHolder(LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.participants_list, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final RecyclerViewHolder holder, int position) {
         Participant participant = list.get(position);
         holder.nameTextView.setText(participant.getPartName());
         holder.countryTextView.setText(participant.getPartCountry());
         holder.dateTextView.setText(participant.getPartBirthday().toLocaleString().substring(0,12));
+        holder.classTextView.setText(participant.getPartGender());
         holder.itemView.setTag(participant);
         holder.itemView.setOnLongClickListener(longClickListener);
         holder.itemView.setOnClickListener(clickListener);
@@ -59,12 +61,14 @@ public class ParticipantAdapter extends RecyclerView.Adapter<ParticipantAdapter.
         private TextView nameTextView;
         private TextView countryTextView;
         private TextView dateTextView;
+        private TextView classTextView;
 
         RecyclerViewHolder(View view) {
             super(view);
             nameTextView = view.findViewById(R.id.tv_name);
             countryTextView = view.findViewById(R.id.tv_country);
             dateTextView = view.findViewById(R.id.tv_dob);
+            classTextView = view.findViewById(R.id.tv_class);
         }
     }
 

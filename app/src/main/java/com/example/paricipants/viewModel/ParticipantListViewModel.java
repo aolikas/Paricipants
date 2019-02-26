@@ -1,5 +1,6 @@
 package com.example.paricipants.viewModel;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
@@ -34,6 +35,7 @@ public class ParticipantListViewModel extends AndroidViewModel {
         new deleteAsyncTask(appDb).execute(participant);
     }
 
+
     private static class deleteAsyncTask extends AsyncTask<Participant, Void, Void> {
 
         private AppDatabase db;
@@ -48,4 +50,21 @@ public class ParticipantListViewModel extends AndroidViewModel {
             return null;
         }
     }
+
+
+
+    private static class getParticipantByGender extends AsyncTask<String, Void, List<Participant>> {
+        private AppDatabase db;
+
+        getParticipantByGender(AppDatabase appDatabase) {db = appDatabase;}
+
+        @Override
+        protected List<Participant> doInBackground(String... params) {
+            return db.getParticipantDao().getParticipantListByGender(params[0]);
+
+
+        }
+
+    }
+
 }

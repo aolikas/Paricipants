@@ -9,15 +9,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.paricipants.database.Participant;
 import com.example.paricipants.viewModel.AddParticipantViewModel;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -30,7 +36,17 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
     private TextInputEditText nameEditText, countryEditText;
     ImageView calendarImage;
 
+
+    private Spinner spinner;
+
+    private String[] genderClass = {
+            "Male",
+            "Female"};
+
+    public ArrayList<String> spinnerList = new ArrayList<>(Arrays.asList(genderClass));
+
     private Button addButton;
+
 
     private AddParticipantViewModel addParticipantViewModel;
 
@@ -45,6 +61,11 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
         nameEditText = findViewById(R.id.et_name);
         countryEditText = findViewById(R.id.et_country);
 
+        spinner = findViewById(R.id.spinner);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerList);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         calendar = Calendar.getInstance();
 
@@ -54,6 +75,8 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
 
         datePickerDialog = new DatePickerDialog(this, AddActivity.this, calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+
+
 
         addButton = findViewById(R.id.btn_save);
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +88,8 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
                     addParticipantViewModel.addParticipant(new Participant(0,
                             nameEditText.getText().toString(),
                             countryEditText.getText().toString(),
-                            date));
+                            date,
+                            spinner.getSelectedItem().toString()));
                     finish();
                 }
             }

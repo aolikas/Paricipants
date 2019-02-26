@@ -23,6 +23,9 @@ public interface ParticipantDao {
     @Query("SELECT * FROM participant WHERE partId = :partId")
     Participant getParticipantById(int partId);
 
+    @Query("SELECT * FROM participant WHERE partGender = :partGender")
+    List<Participant> getParticipantListByGender(String partGender);
+
     @Insert(onConflict = REPLACE)
     void addParticipant(Participant participant);
 

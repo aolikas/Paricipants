@@ -19,11 +19,14 @@ public class Participant {
     @TypeConverters(DateRoomConverter.class)
     private Date partBirthday;
 
-    public Participant(int partId, String partName, String partCountry, Date partBirthday) {
+    private String partGender;
+
+    public Participant(int partId, String partName, String partCountry, Date partBirthday, String partGender) {
         this.partId = partId;
         this.partName = partName;
         this.partCountry = partCountry;
         this.partBirthday = partBirthday;
+        this.partGender = partGender;
     }
 
     //setters
@@ -38,6 +41,8 @@ public class Participant {
     public void setPartBirthday(Date partBirthday) {
         this.partBirthday = partBirthday;
     }
+
+    public void setPartGender(String partGender) {this.partGender = partGender;}
 
 
     //getters
@@ -56,5 +61,7 @@ public class Participant {
     public Date getPartBirthday() {
         return partBirthday;
     }
+
+    public String getPartGender() { return partGender; }
 
 }
