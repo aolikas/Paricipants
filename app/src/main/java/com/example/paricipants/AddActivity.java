@@ -3,24 +3,19 @@ package com.example.paricipants;
 import android.app.DatePickerDialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.InputType;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.paricipants.database.Participant;
-import com.example.paricipants.viewModel.AddParticipantViewModel;
+import com.example.paricipants.database.entity.Participant;
+import com.example.paricipants.viewModel.ParticipantViewModel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,7 +43,7 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
     private Button addButton;
 
 
-    private AddParticipantViewModel addParticipantViewModel;
+    private ParticipantViewModel addParticipantViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +65,7 @@ public class AddActivity extends AppCompatActivity implements DatePickerDialog.O
         calendar = Calendar.getInstance();
 
         addParticipantViewModel = ViewModelProviders.of(this).
-                get(AddParticipantViewModel.class);
+                get(ParticipantViewModel.class);
 
 
         datePickerDialog = new DatePickerDialog(this, AddActivity.this, calendar.get(Calendar.YEAR),

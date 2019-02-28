@@ -1,4 +1,4 @@
-package com.example.paricipants.database;
+package com.example.paricipants.database.converters;
 
 import android.arch.persistence.room.TypeConverter;
 

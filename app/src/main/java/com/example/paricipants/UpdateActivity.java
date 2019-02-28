@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,15 +11,12 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.paricipants.database.Participant;
-import com.example.paricipants.viewModel.UpdateParticipantViewModel;
+import com.example.paricipants.database.entity.Participant;
+import com.example.paricipants.viewModel.ParticipantViewModel;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -52,7 +48,7 @@ public class UpdateActivity extends AppCompatActivity implements DatePickerDialo
     private Button addButton;
     private int itemId = 0;
 
-    private UpdateParticipantViewModel updateParticipantViewModel;
+    private ParticipantViewModel updateParticipantViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +73,7 @@ public class UpdateActivity extends AppCompatActivity implements DatePickerDialo
 
 
         calendar = Calendar.getInstance();
-        updateParticipantViewModel = ViewModelProviders.of(this).get(UpdateParticipantViewModel.class);
+        updateParticipantViewModel = ViewModelProviders.of(this).get(ParticipantViewModel.class);
 
         datePickerDialog = new DatePickerDialog(this, UpdateActivity.this, calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));

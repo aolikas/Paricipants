@@ -1,11 +1,9 @@
 package com.example.paricipants;
 
 
-import android.annotation.SuppressLint;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -15,12 +13,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.example.paricipants.adapter.ParticipantAdapter;
 import com.example.paricipants.database.AppDatabase;
-import com.example.paricipants.database.Participant;
-import com.example.paricipants.viewModel.ParticipantListViewModel;
+import com.example.paricipants.database.entity.Participant;
+import com.example.paricipants.viewModel.ParticipantViewModel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,7 +25,7 @@ import java.util.List;
 
 public class MainActivity  extends AppCompatLifeCycleActivity implements View.OnLongClickListener, View.OnClickListener {
 
-    private ParticipantListViewModel viewModel;
+    private ParticipantViewModel viewModel;
     private ParticipantAdapter participantViewAdapter;
     private RecyclerView recyclerView;
 
@@ -50,6 +47,8 @@ public class MainActivity  extends AppCompatLifeCycleActivity implements View.On
         spinner.setAdapter(adapter);
 
 
+
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,9 +62,9 @@ public class MainActivity  extends AppCompatLifeCycleActivity implements View.On
 
         recyclerView.setAdapter(participantViewAdapter);
 
-        viewModel = ViewModelProviders.of(this).get(ParticipantListViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(ParticipantViewModel.class);
 
-        viewModel.getParticipantsList().observe(MainActivity.this, new Observer<List<Participant>>() {
+        viewModel.getParticipants().observe(MainActivity.this, new Observer<List<Participant>>() {
             @Override
             public void onChanged(@Nullable List<Participant> participants) {
                 participantViewAdapter.addParticipants(participants);
